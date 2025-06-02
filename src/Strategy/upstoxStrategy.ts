@@ -11,17 +11,17 @@ export class upstockProvider implements StockCandleDataProvider {
 
     async getCandleHistoricalData(interval: string, fromDate: Date, toDate: Date, stockIndetifier: string): Promise<StockCandle[]> {
 
-        let baseUrl = `historical-candle/`;
+        let historicalCandleUrl = `historical-candle/`;
 
-        baseUrl += `${stockIndetifier}/`;
+        historicalCandleUrl += `${stockIndetifier}/`;
 
-        baseUrl += `${interval}/`;
+        historicalCandleUrl += `${interval}/`;
 
-        baseUrl += `${toDate}/`;
+        historicalCandleUrl += `${toDate}/`;
 
-        baseUrl += fromDate;
+        historicalCandleUrl += fromDate;
 
-        const response = await this.httpClient.get(baseUrl);
+        const response = await this.httpClient.get(historicalCandleUrl);
 
         const data = response.data;
 
@@ -40,6 +40,8 @@ export class upstockProvider implements StockCandleDataProvider {
                    close : candle[4],
                    volume : candle[5]
                 } 
+
+
                 
                 stockCandleData.push(stockCandle);
             })

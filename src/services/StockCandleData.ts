@@ -11,8 +11,9 @@ interface CandleFilter {
 class StockAnalysisService {
 
     async getCandleData ({fromDate , toDate, stockIdentifier , interval} : CandleFilter) : Promise<StockCandle[]> {
+
         const stockCandles = await StockCandleDataContext.getHistoricalData(interval,fromDate,toDate,stockIdentifier);
-    
+        
         return stockCandles;
     }
 }

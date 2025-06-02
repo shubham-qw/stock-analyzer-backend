@@ -1,5 +1,5 @@
 import { StockCandleData } from "./StockCandleData";
-import { upstockProvider } from "../adapters/upstoxAdaptor";
+import { upstockProvider } from "../Strategy/upstoxStrategy";
 import createBrokerHttpClient from "../lib/brokerHttpClient";
 import config from '../config/config.json';
 
